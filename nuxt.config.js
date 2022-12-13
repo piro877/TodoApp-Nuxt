@@ -40,12 +40,8 @@ export default {
   // storybookの設定
   storybook: {
     // 追加のアドオンなどあれば
-    addons: [
-      
-    ],
-    stories: [
-      // '~/stories/**/*.stories.js',
-    ],
+    addons: [],
+    stories: ['~/stories/**/*.stories.js'],
     // ポート指定
     port: 5555,
     // ストーリーの親に要素など追加しcssなど設定できる
@@ -58,30 +54,12 @@ export default {
       backgrounds: {
         default: 'dark', // light or dark
       },
-      // 背景色：カスタマイズする場合
-      backgrounds: {
-        default: 'brown',
-        values: [
-          {
-            name: 'brown',
-            value: '#56371B'
-          },
-          {
-            name: 'light',
-            value: '#fff'
-          },
-          {
-            name: 'dark',
-            value: '#333'
-          },
-        ]
-      },
       // Description, Default, Controlsカラムの表示
       controls: {
-        expanded: true
+        expanded: true,
       },
       // 表示位置
       layout: 'centered', // centered:中央表示, padded:コンポーネントに余白付与, fullscreen:幅いっぱい
-    }
-  }
+    },
+  },
 }

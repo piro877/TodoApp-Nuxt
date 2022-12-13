@@ -4,5 +4,8 @@
   },
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
+  },
+  "AtomMyButton": {
+    "description": "Auto imported from components/Atom/MyButton.vue"
   }
 }

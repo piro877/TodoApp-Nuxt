@@ -11,5 +11,8 @@ module.exports = {
   ],
   plugins: [],
   // add your custom rules here
-  rules: {},
+  rules: {
+    'no-console': 'off', // console.log()の使用を許可する
+    semi: ['error', 'never'], // 文末にセミコロンを付けない
+  },
 }

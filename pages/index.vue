@@ -1,11 +1,19 @@
 <template>
-  <Tutorial />
+  <div>
+    <MyButton />
+    <div>hoge</div>
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
+import MyButton from '../components/Atom/MyButton.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'IndexPage',
+  components: {
+    MyButton,
+  },
+  setup() {},
 })
 </script>
