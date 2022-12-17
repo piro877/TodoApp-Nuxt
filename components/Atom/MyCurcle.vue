@@ -15,11 +15,11 @@ export default defineComponent({
   setup(props) {
     const colorSelector = () => {
       if (props.color === 'red') {
-        return 'curcle-color--red'
+        return 'background-color--red'
       } else if (props.color === 'blue') {
-        return 'curcle-color--blue'
+        return 'background-color--blue'
       } else {
-        return 'curcle-color'
+        return 'background-color'
       }
     }
     return {

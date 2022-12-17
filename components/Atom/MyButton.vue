@@ -22,11 +22,11 @@ export default defineComponent({
   setup(props) {
     const colorSelector = () => {
       if (props.color === 'red') {
-        return 'button-color--red'
+        return 'background-color--red'
       } else if (props.color === 'blue') {
-        return 'button-color--blue'
+        return 'background-color--blue'
       } else {
-        return 'button-color'
+        return 'background-color'
       }
     }
     return {
@@ -48,14 +48,5 @@ export default defineComponent({
   padding: 10px 20px;
   border-radius: 6px;
   width: fit-content;
-}
-.button-color {
-  background-color: #f08700;
-}
-.button-color--blue {
-  background-color: #23c9ff;
-}
-.button-color--red {
-  background-color: #de3c4b;
 }
 </style>
