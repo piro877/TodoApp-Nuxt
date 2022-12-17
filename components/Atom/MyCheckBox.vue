@@ -37,6 +37,7 @@ export default defineComponent({
   width: 20px;
   height: 20px;
   padding: 3px 7px 7px 3px;
+  cursor: pointer;
 }
 .checkbox-true {
   border: solid 1px #f08700;

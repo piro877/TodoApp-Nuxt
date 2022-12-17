@@ -55,6 +55,10 @@ export default defineComponent({
   padding: 10px 20px;
   border-radius: 6px;
   width: fit-content;
+  cursor: pointer;
+}
+.button-style:hover {
+  opacity: 0.6;
 }
 .button-small {
   font-size: 14px;
