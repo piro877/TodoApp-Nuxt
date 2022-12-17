@@ -1,9 +1,10 @@
 <template>
-  <div :class="colorSelector()"></div>
+  <div :class="colorSelector(color)"></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { colorSelector } from '~/components/modules/ColorSelector'
 
 export default defineComponent({
   props: {
@@ -12,16 +13,7 @@ export default defineComponent({
       default: '',
     },
   },
-  setup(props) {
-    const colorSelector = () => {
-      if (props.color === 'red') {
-        return 'background-color--red'
-      } else if (props.color === 'blue') {
-        return 'background-color--blue'
-      } else {
-        return 'background-color'
-      }
-    }
+  setup() {
     return {
       colorSelector,
     }
@@ -34,14 +26,5 @@ div {
   width: 30px;
   height: 30px;
   border-radius: 15px;
-}
-.curcle-color {
-  background-color: #f08700;
-}
-.curcle-color--blue {
-  background-color: #23c9ff;
-}
-.curcle-color--red {
-  background-color: #de3c4b;
 }
 </style>

@@ -16,6 +16,17 @@ export default {
         },
       },
     },
+    size: {
+      control: {
+        type: 'radio',
+        options: ['small', 'medium', 'large'],
+        labels: {
+          small: 'small',
+          medium: 'medium',
+          large: 'large',
+        },
+      },
+    },
   },
 }
 

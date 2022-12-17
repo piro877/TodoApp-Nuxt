@@ -1,11 +1,12 @@
 <template>
-  <div class="button-style" :class="colorSelector()">
+  <div class="button-style" :class="buttonClass()">
     <div class="button">{{ text }}</div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import { colorSelector } from '~/components/modules/ColorSelector'
 
 export default defineComponent({
   name: 'MyButton',
@@ -18,20 +19,26 @@ export default defineComponent({
       type: String,
       default: '',
     },
+    size: {
+      type: String,
+      default: 'medium',
+    },
   },
   setup(props) {
-    const colorSelector = () => {
-      if (props.color === 'red') {
-        return 'background-color--red'
-      } else if (props.color === 'blue') {
-        return 'background-color--blue'
+    const sizeSelector = () => {
+      if (props.size === 'small') {
+        return 'button-small'
+      } else if (props.size === 'large') {
+        return 'button-large'
       } else {
-        return 'background-color'
+        return ''
       }
     }
+    const buttonClass = () => {
+      return colorSelector(props.color) + ' ' + sizeSelector()
+    }
     return {
-      props,
-      colorSelector,
+      buttonClass,
     }
   },
 })
@@ -48,5 +55,13 @@ export default defineComponent({
   padding: 10px 20px;
   border-radius: 6px;
   width: fit-content;
+}
+.button-small {
+  font-size: 14px;
+  padding: 5px 7px;
+  border-radius: 12px;
+}
+.button-large {
+  font-size: 20px;
 }
 </style>

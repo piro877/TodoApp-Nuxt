@@ -19,7 +19,7 @@ export default defineComponent({
     }
     const checkboxColor = () => {
       return isChecked.value
-        ? 'background-color'
+        ? 'background-color checkbox-true'
         : 'background-color--white checkbox-false'
     }
     return {
@@ -37,6 +37,9 @@ export default defineComponent({
   width: 20px;
   height: 20px;
   padding: 3px 7px 7px 3px;
+}
+.checkbox-true {
+  border: solid 1px #f08700;
 }
 .checkbox-false {
   border: solid 1px #d3d3d3;
