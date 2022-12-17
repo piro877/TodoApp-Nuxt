@@ -41,7 +41,7 @@ export default {
   storybook: {
     // 追加のアドオンなどあれば
     addons: [],
-    stories: ['~/stories/**/*.stories.js'],
+    stories: ['~/components/stories/**/*.stories.js'],
     // ポート指定
     port: 5555,
     // ストーリーの親に要素など追加しcssなど設定できる
@@ -52,7 +52,7 @@ export default {
     parameters: {
       // 背景色：デフォルトの色を使う場合
       backgrounds: {
-        default: 'dark', // light or dark
+        default: 'light', // light or dark
       },
       // Description, Default, Controlsカラムの表示
       controls: {
