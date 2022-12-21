@@ -3,7 +3,6 @@
     "name": "index",
     "path": "/",
     "component": "/home/piro/github/pj/nuxt-todo-app/TodoApp-Nuxt/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_076adcbb"
+    "chunkName": "pages/index"
   }
 ]

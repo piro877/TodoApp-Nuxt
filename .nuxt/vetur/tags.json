@@ -5,12 +5,6 @@
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
   },
-  "MoleculeListItem": {
-    "description": "Auto imported from components/Molecule/ListItem.vue"
-  },
-  "MoleculeTextInput": {
-    "description": "Auto imported from components/Molecule/TextInput.vue"
-  },
   "AtomListTemplate": {
     "description": "Auto imported from components/Atom/ListTemplate.vue"
   },
@@ -38,6 +32,12 @@
   "AtomMyTextField": {
     "description": "Auto imported from components/Atom/MyTextField.vue"
   },
+  "MoleculeListItem": {
+    "description": "Auto imported from components/Molecule/ListItem.vue"
+  },
+  "MoleculeTextInput": {
+    "description": "Auto imported from components/Molecule/TextInput.vue"
+  },
   "OrganismRegisterModal": {
     "description": "Auto imported from components/Organism/RegisterModal.vue"
   },
@@ -46,5 +46,8 @@
   },
   "ModulesColorSelector": {
     "description": "Auto imported from components/modules/ColorSelector.ts"
+  },
+  "ModulesUseTodoItems": {
+    "description": "Auto imported from components/modules/UseTodoItems.ts"
   }
 }

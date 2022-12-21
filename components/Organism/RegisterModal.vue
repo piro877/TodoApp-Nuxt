@@ -13,9 +13,11 @@ import { defineComponent, reactive, toRefs } from 'vue'
 import ModalTemplate from '~/components/Atom/ModalTemplate.vue'
 import TextInput from '~/components/Molecule/TextInput.vue'
 import MyButton from '~/components/Atom/MyButton.vue'
+import { TodoItemType, useTodoItems } from '~/components/modules/UseTodoItems'
 
 const state = reactive({
   item: '',
+  id: 4,
 })
 
 export default defineComponent({
@@ -25,10 +27,19 @@ export default defineComponent({
     MyButton,
   },
   setup(_, { emit }) {
-    const { item } = toRefs(state)
+    const { item, id } = toRefs(state)
+    const { setTodoItems } = useTodoItems()
     const registerItem = () => {
       // TODOリストの項目を追加する処理を書く
-      emit('closeModal')
+      const setItem = {
+        id: id.value,
+        label: item.value,
+        isDelete: false,
+        isDone: false,
+      } as TodoItemType
+      setTodoItems(setItem)
+      emit('register')
+      id.value++
     }
     const closeModal = () => {
       console.log('close')
