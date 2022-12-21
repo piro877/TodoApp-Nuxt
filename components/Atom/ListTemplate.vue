@@ -8,8 +8,9 @@
 .list-template {
   display: flex;
   flex-direction: column;
-  padding: 5px 10px;
-  margin: 3px;
+  padding: 10px;
+  gap: 3px;
   border-radius: 5px;
+  background-color: #dfdede;
 }
 </style>
