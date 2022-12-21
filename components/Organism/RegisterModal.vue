@@ -1,9 +1,9 @@
 <template>
   <div>
-    <ModalTemplate>
+    <ModalTemplate @closeModal="closeModal()">
       <div>TODOを入力</div>
-      <TextInput v-model="item" text="TODO"/>
-      <MyButton text="登録" @click="registerItem()">
+      <TextInput :value.sync="item" text="TODO" />
+      <MyButton text="登録" @click="registerItem()" />
     </ModalTemplate>
   </div>
 </template>
@@ -15,24 +15,29 @@ import TextInput from '~/components/Molecule/TextInput.vue'
 import MyButton from '~/components/Atom/MyButton.vue'
 
 const state = reactive({
-  item: ""
+  item: '',
 })
 
 export default defineComponent({
   components: {
     ModalTemplate,
     TextInput,
-    MyButton
+    MyButton,
   },
-  setup(props, context) {
-    const {item} = toRefs(state)
+  setup(_, { emit }) {
+    const { item } = toRefs(state)
     const registerItem = () => {
-      console.log(item)
-      context.emit("closeModal")
+      // TODOリストの項目を追加する処理を書く
+      emit('closeModal')
+    }
+    const closeModal = () => {
+      console.log('close')
+      emit('closeModal')
     }
     return {
       item,
-      registerItem
+      registerItem,
+      closeModal,
     }
   },
 })

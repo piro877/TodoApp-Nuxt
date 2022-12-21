@@ -5,7 +5,46 @@
   "Tutorial": {
     "description": "Auto imported from components/Tutorial.vue"
   },
+  "MoleculeListItem": {
+    "description": "Auto imported from components/Molecule/ListItem.vue"
+  },
+  "MoleculeTextInput": {
+    "description": "Auto imported from components/Molecule/TextInput.vue"
+  },
+  "AtomListTemplate": {
+    "description": "Auto imported from components/Atom/ListTemplate.vue"
+  },
+  "AtomModalTemplate": {
+    "description": "Auto imported from components/Atom/ModalTemplate.vue"
+  },
   "AtomMyButton": {
     "description": "Auto imported from components/Atom/MyButton.vue"
+  },
+  "AtomMyCheckBox": {
+    "description": "Auto imported from components/Atom/MyCheckBox.vue"
+  },
+  "AtomMyCurcle": {
+    "description": "Auto imported from components/Atom/MyCurcle.vue"
+  },
+  "AtomMyInputForm": {
+    "description": "Auto imported from components/Atom/MyInputForm.vue"
+  },
+  "AtomMyLabel": {
+    "description": "Auto imported from components/Atom/MyLabel.vue"
+  },
+  "AtomMySeparater": {
+    "description": "Auto imported from components/Atom/MySeparater.vue"
+  },
+  "AtomMyTextField": {
+    "description": "Auto imported from components/Atom/MyTextField.vue"
+  },
+  "OrganismRegisterModal": {
+    "description": "Auto imported from components/Organism/RegisterModal.vue"
+  },
+  "OrganismTodoList": {
+    "description": "Auto imported from components/Organism/TodoList.vue"
+  },
+  "ModulesColorSelector": {
+    "description": "Auto imported from components/modules/ColorSelector.ts"
   }
 }

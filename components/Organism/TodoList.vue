@@ -2,7 +2,7 @@
   <div class="todo-list">
     <ListTemplate>
       <div class="button-class">
-        <MyButton text="登録する" />
+        <MyButton text="登録する" @click="$emit('register')" />
       </div>
       <div v-for="item in todoList" :key="item">
         <ListItem :text="item" />
@@ -42,5 +42,10 @@ export default defineComponent({
   flex-direction: row-reverse;
   height: fit-content;
   margin-bottom: 10px;
+}
+.todo-list {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 </style>

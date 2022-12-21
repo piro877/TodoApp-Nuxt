@@ -1,6 +1,10 @@
 <template>
   <div class="input-form">
-    <input type="text" @input="$emit('input')" />
+    <input
+      type="text"
+      :value="value"
+      @input="updateValue($event.target.value)"
+    />
   </div>
 </template>
 
@@ -8,8 +12,17 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  setup() {
-    return {}
+  props: {
+    value: {
+      type: String,
+      default: '',
+    },
+  },
+  setup(_, { emit }) {
+    const updateValue = (value: string) => {
+      emit('update', value)
+    }
+    return { updateValue }
   },
 })
 </script>
