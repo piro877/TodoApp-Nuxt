@@ -1,0 +1,205 @@
+{
+  "openapi": "3.0.1",
+  "info": { "title": "TodoApp", "version": "v1" },
+  "paths": {
+    "/api/todo/{todoId}": {
+      "get": {
+        "tags": ["Todo"],
+        "parameters": [
+          {
+            "name": "todoId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int32" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": { "$ref": "#/components/schemas/TodoItem" }
+              },
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TodoItem" }
+              },
+              "text/json": {
+                "schema": { "$ref": "#/components/schemas/TodoItem" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Todo"],
+        "parameters": [
+          {
+            "name": "todoId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int32" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutTodoItemRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutTodoItemRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutTodoItemRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": { "$ref": "#/components/schemas/TodoItem" }
+              },
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TodoItem" }
+              },
+              "text/json": {
+                "schema": { "$ref": "#/components/schemas/TodoItem" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Todo"],
+        "parameters": [
+          {
+            "name": "todoId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int32" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": { "type": "integer", "format": "int32" }
+              },
+              "application/json": {
+                "schema": { "type": "integer", "format": "int32" }
+              },
+              "text/json": {
+                "schema": { "type": "integer", "format": "int32" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/todo": {
+      "post": {
+        "tags": ["Todo"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostTodoItemRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostTodoItemRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostTodoItemRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": { "$ref": "#/components/schemas/TodoItem" }
+              },
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TodoItem" }
+              },
+              "text/json": {
+                "schema": { "$ref": "#/components/schemas/TodoItem" }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Todo"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/TodoItem" }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/TodoItem" }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/TodoItem" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TodoItem": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "format": "int32" },
+          "itemLabel": { "type": "string", "nullable": true },
+          "isDelete": { "type": "boolean" },
+          "isDone": { "type": "boolean" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "modifiedAt": { "type": "string", "format": "date-time" }
+        },
+        "additionalProperties": false
+      },
+      "PutTodoItemRequest": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string", "nullable": true },
+          "isDone": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      },
+      "PostTodoItemRequest": {
+        "type": "object",
+        "properties": { "label": { "type": "string", "nullable": true } },
+        "additionalProperties": false
+      }
+    }
+  }
+}

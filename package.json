@@ -10,7 +10,8 @@
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
+    "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
+    "generate-axios": "openapi-generator-cli generate -g typescript-axios -i ./api.json -o ./types/typescript-axios"
   },
   "dependencies": {
     "core-js": "^3.25.3",
@@ -26,6 +27,7 @@
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
     "@nuxtjs/storybook": "^4.3.2",
+    "@openapitools/openapi-generator-cli": "^2.5.2",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^4.0.0",
