@@ -8,14 +8,14 @@
 import { defineComponent, reactive, toRefs } from 'vue'
 
 const state = reactive({
-  isChecked: false,
+  isChecked: true,
 })
 
 export default defineComponent({
   setup() {
     const { isChecked } = toRefs(state)
     const checkMarkShow = () => {
-      isChecked.value = !isChecked.value
+      // isChecked.value = !isChecked.value
     }
     const checkboxColor = () => {
       return isChecked.value

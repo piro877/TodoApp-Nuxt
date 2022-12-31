@@ -5,7 +5,13 @@
         <MyButton text="登録する" @click="showModal" />
       </div>
       <div v-for="item in todoList" :key="item.id">
-        <ListItem :text="item.label" />
+        <ListItem
+          v-show="!item.isDelete && !item.isDone"
+          :text="item.label"
+          :is-done="item.isDone"
+          @delete="deleteItem(item.id)"
+          @done="doneItem(item.id)"
+        />
         <MySeparater />
       </div>
       <div v-show="todoList.length === 0" class="no-todo">
@@ -44,8 +50,13 @@ export default defineComponent({
   },
   setup() {
     const { todoList, isShow } = toRefs(state)
-    const { getTodoItemsTemplate, getTodoItems } = useTodoItems()
-    todoList.value = getTodoItemsTemplate()
+    const { getTodoItems, deleteTodoItem, doneTodoItem } = useTodoItems()
+
+    // テンプレート取得
+    const getList = async () => {
+      todoList.value = await getTodoItems()
+    }
+    getList()
     // const todoListTemplate = ['ご飯食べる', '焼肉食べる', 'ガパオライス食べる']
 
     const showModal = () => {
@@ -54,11 +65,18 @@ export default defineComponent({
     const closeModal = () => {
       isShow.value = false
     }
-    const registerItem = () => {
-      todoList.value = getTodoItems()
-      // useの値を使いたいのにセットされない、、
-      console.log(getTodoItems())
-      console.log(todoList.value)
+    const registerItem = async () => {
+      state.todoList = await getTodoItems()
+    }
+
+    const deleteItem = async (id: number) => {
+      await deleteTodoItem(id)
+      state.todoList = await getTodoItems()
+    }
+
+    const doneItem = async (id: number) => {
+      await doneTodoItem(id)
+      state.todoList = await getTodoItems()
     }
 
     return {
@@ -67,6 +85,8 @@ export default defineComponent({
       showModal,
       closeModal,
       registerItem,
+      deleteItem,
+      doneItem,
     }
   },
 })

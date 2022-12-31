@@ -1,8 +1,9 @@
 import { reactive } from 'vue'
+import { TodoApi } from '~/types/typescript-axios'
 
 export type TodoItemType = {
   id: number
-  label: String
+  label: string
   isDelete: Boolean
   isDone: Boolean
 }
@@ -13,6 +14,7 @@ export const useTodoItems = () => {
   const state = reactive({
     todoItems: [] as todoItemList,
   })
+  const api = new TodoApi()
   // let todoItems: todoItemList = []
   const initTodoItems = () => {
     state.todoItems = [
@@ -24,41 +26,62 @@ export const useTodoItems = () => {
       } as TodoItemType,
     ]
   }
-  const getTodoItems = () => {
+  const getTodoItems = async () => {
+    // TODO
+    const res = [] as todoItemList
+    const items = await api.apiTodoGet().then((res) => {
+      return res.data
+    })
+    items.forEach((value) => {
+      const item = {
+        id: value.id,
+        label: value.itemLabel,
+        isDelete: value.isDelete,
+        isDone: value.isDone,
+      } as TodoItemType
+      res.push(item)
+    })
+    return res
+  }
+  const setTodoItems = async (label: string) => {
+    await api.apiTodoPost({
+      label,
+    })
+  }
+  const getTodoItemsTemplate = async () => {
+    const items = await api.apiTodoTemplateGet().then((res) => {
+      console.log(res)
+      return res.data
+    })
+    items.forEach((value) => {
+      const item = {
+        id: value.id,
+        label: value.itemLabel,
+        isDelete: value.isDelete,
+        isDone: value.isDone,
+      } as TodoItemType
+      state.todoItems.push(item)
+      return item
+    })
     return state.todoItems
   }
-  const setTodoItems = (item: TodoItemType) => {
-    // 値がセットされない、、
-    state.todoItems.push(item)
-    console.log(state.todoItems)
+  const deleteTodoItem = async (id: number) => {
+    const res = await api.apiTodoTodoIdDelete(id).then((res) => {
+      return res.data
+    })
+    return res
   }
-  const getTodoItemsTemplate = () => {
-    const todoItemsTemplate = [
-      {
-        id: 1,
-        label: '肉を焼く',
-        isDelete: false,
-        isDone: false,
-      },
-      {
-        id: 2,
-        label: '玉ねぎを切る',
-        isDelete: false,
-        isDone: false,
-      },
-      {
-        id: 3,
-        label: 'たくさん食べる',
-        isDelete: false,
-        isDone: false,
-      },
-    ] as todoItemList
-    return todoItemsTemplate
+  const doneTodoItem = async (id: number) => {
+    await api.apiTodoTodoIdPut(id, {
+      isDone: true,
+    })
   }
   return {
     initTodoItems,
     getTodoItems,
     setTodoItems,
     getTodoItemsTemplate,
+    deleteTodoItem,
+    doneTodoItem,
   }
 }
