@@ -72,7 +72,8 @@ export const useTodoItems = () => {
     return res
   }
   const doneTodoItem = async (id: number) => {
-    await api.apiTodoTodoIdPut(id, {
+    await api.apiTodoPut({
+      id,
       isDone: true,
     })
   }
